@@ -6,10 +6,13 @@ sequences = []
 
 def initializing():
     fasta_file = input("Input the path to '.fasta' or '.fas' file as you which to convert to .phy: ")
-    extracting_data_from_fasta_file(fasta_file)
-    phy_file = input("Choose a name to '.phy' output file (without the extension .phy): ")
-    phy_output_file_name = f'{phy_file}.phy'
-    writing_data_from_fasta_to_phy_file(phy_output_file_name)
+    if checking_if_is_fasta_file(fasta_file):
+            extracting_data_from_fasta_file(fasta_file)
+            phy_file = input("Choose a name to '.phy' output file (without the extension .phy): ")
+            phy_output_file_name = f'{phy_file}.phy'
+            writing_data_from_fasta_to_phy_file(phy_output_file_name)
+    else:
+        raise ValueError("Insert a FASTA file format (e.g. '.fas', '.fasta', '.fna', 'ffn', 'faa', '.frn')")
 
 
 def extracting_data_from_fasta_file(fasta_file):
@@ -50,5 +53,13 @@ def writing_data_from_fasta_to_phy_file(phy_output_file_name):
         for taxon in taxa:
             output_file.write(f'{taxon} {sequences[taxa.index(taxon)]}\n')
     print('.fasta or .fas file converted sucessfully to .phy file!')
+
+def checking_if_is_fasta_file(fasta_file):
+    extensions = ['.fas', '.fasta', '.fna', 'ffn', 'faa', '.frn']
+    for extension in extensions:
+        pattern = extension
+        search_for = re.search(pattern, fasta_file)
+        if bool(search_for):
+            return True
 
 initializing()
