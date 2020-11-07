@@ -4,6 +4,8 @@ import re
 taxa = []
 sequences = []
 
+# Adicionar um Loop no inicializador
+
 def initializing():
     fasta_file = input("Input the path to '.fasta' or '.fas' file as you which to convert to .phy: ")
     if checking_if_is_fasta_file(fasta_file):
@@ -13,7 +15,6 @@ def initializing():
             writing_data_from_fasta_to_phy_file(phy_output_file_name)
     else:
         raise ValueError("Insert a FASTA file format (e.g. '.fas', '.fasta', '.fna', 'ffn', 'faa', '.frn')")
-
 
 def extracting_data_from_fasta_file(fasta_file):
     with open(fasta_file, mode = 'r') as fasta_data:
@@ -39,13 +40,6 @@ def testing_number_of_taxa_and_sequence():
         print('OK!')
     else:
         ValueError('Number of taxa and sequence do not match. Check the pattern of your .fasta or .fas file.')
-
-# def extracting_input_file_name_to_output(input_file_name): # CORRIGIR
-#     pattern = "([a-z]*)?(/)?([a-z]*)(.)([a-z]{2,4})"
-#     search = re.search(pattern, input_file_name)
-#     file_name = search.group(3)
-#     output_file_name = f'{file_name}_converted.phy'
-#     return output_file_name
 
 def writing_data_from_fasta_to_phy_file(phy_output_file_name):
     with open(phy_output_file_name, mode = 'w') as output_file:
