@@ -62,6 +62,8 @@ def writing_data_from_fasta_to_phy_file(phy_file):
         output_file.write(f'{len(taxa)} {len(sequences[0])}\n')
         for taxon in taxa:
             output_file.write(f'{taxon} {sequences[taxa.index(taxon)]}\n')
+    taxa.clear()
+    sequences.clear()
     print('FASTA file converted sucessfully to Phyllip file!')
 
 # def checking_if_is_fasta_file(fasta_file):
