@@ -29,7 +29,7 @@ def main():
     console_log = scrolledtext.ScrolledText(console_frame, width=40, height=10)
     console_log.grid(row=0, column=0, sticky=tk.W + tk.E + tk.N + tk.S)
     console_log.tag_configure("centered", justify="left")
-    console_log.insert(INSERT, "------------ FastoPhy v0.3.0, a software to convert FASTA file in Phyllip file ------------\n")
+    console_log.insert(INSERT, "------------ FastoPhy v0.3.1, a software to convert FASTA file in Phyllip file ------------\n")
     console_log.insert(INSERT, "Please, click on top button to input FASTA file and iniate the conversion.\n")
 
     master_window.mainloop()
