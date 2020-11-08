@@ -1,10 +1,11 @@
 import tkinter as tk
-from tkinter import scrolledtext
+from tkinter import scrolledtext, INSERT
 import fastophy_GUI
 
 def main():
     master_window = tk.Tk()
-    master_window.title("Fas to Phy")
+    master_window.geometry("800x400")
+    master_window.title("FastoPhy")
 
     # Parent widget for the buttons
     buttons_frame = tk.Frame(master_window)
@@ -27,6 +28,9 @@ def main():
     # Console log without text
     console_log = scrolledtext.ScrolledText(console_frame, width=40, height=10)
     console_log.grid(row=0, column=0, sticky=tk.W + tk.E + tk.N + tk.S)
+    console_log.tag_configure("centered", justify="left")
+    console_log.insert(INSERT, "------------ FastoPhy v0.3.0, a software to convert FASTA file in Phyllip file ------------\n")
+    console_log.insert(INSERT, "Please, click on top button to input FASTA file and iniate the conversion.\n")
 
     master_window.mainloop()
 
