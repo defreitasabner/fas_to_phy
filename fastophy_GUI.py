@@ -74,4 +74,5 @@ def writing_data_from_fasta_to_phy_file(phy_file):
 #         if bool(search_for):
 #             return True
 
-initializing()
+if __name__ == '__main__':
+    initializing()
