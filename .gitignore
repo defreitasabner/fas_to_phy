@@ -3,4 +3,5 @@ my_sequences/
 my_sequences_2/
 venv/
 __pycache__/
+build/
 fastophy_SOLID.py
